@@ -6,7 +6,6 @@ After displaying the initial state, the program will proceed to calculate some n
 
 The program is run from the command line with the following optional flags:<br/>
 ```
+make
 life rows columns filename generations
 ```
-
-Terminal - 'make'
