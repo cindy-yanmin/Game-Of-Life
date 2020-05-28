@@ -6,4 +6,4 @@ Implementing Conway's well known Game of Life is a good way of starting to learn
 - Any live cell with more than three live neighbours dies.
 - Any dead cell with exactly three live neighbours becomes a live cell.
 
-Here are the example [input file](./input.txt) and corresponding [output file](./output.txt).
+An example input file is [input.txt](./input.txt) and the corresponding output is [output.txt](./output.txt).
