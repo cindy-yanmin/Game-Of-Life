@@ -5,7 +5,9 @@ If there are more lines in the file or some lines are longer than expected, then
 After displaying the initial state, the program will proceed to calculate some number of additional generations, displaying each in turn. The number of generations will be 10 by default, but a different value may be provided on the command line.<br/><br/>
 
 The program is run from the command line as follows:<br/>
-life rows columns filename generations<br/>
-*Note that all values are optional<br/><br/>
+```
+life rows columns filename generations
+```
+*Note that all values are optional<br/>
 
 Terminal - 'make'
