@@ -4,10 +4,9 @@ If there are fewer lines in the file or some lines are shorter than expected, th
 If there are more lines in the file or some lines are longer than expected, then ignore the extra cells.<br/>
 After displaying the initial state, the program will proceed to calculate some number of additional generations, displaying each in turn. The number of generations will be 10 by default, but a different value may be provided on the command line.<br/><br/>
 
-The program is run from the command line as follows:<br/>
+The program is run from the command line with the following optional flags:<br/>
 ```
 life rows columns filename generations
 ```
-*Note that all values are optional<br/>
 
 Terminal - 'make'
