@@ -1,21 +1,23 @@
 import React from 'react';
 
 function Life({input, setContent}) {
+    const SIDE = 10;
+
     var content = "";
     var world = getInitialWorld(input);
 
     for (var i = 0; i <= 10; ++i) {
         printWorld(i, world);
-        world = oneGeneration(world);
+        world = nextGeneration(world);
     }
 
     function getInitialWorld(input) {
         var charIndex = 0;
         var world = [];
 
-        for (var r = 0; r < 10; ++r) {
+        for (var r = 0; r < SIDE; ++r) {
             world.push([]);
-            for (var c = 0; c < 10; ++c) {
+            for (var c = 0; c < SIDE; ++c) {
                 if (input[charIndex] && input[charIndex]!=="\n") {
                     if (input[charIndex]==="*") world[r].push("*");
                     else world[r].push("-");
@@ -32,8 +34,8 @@ function Life({input, setContent}) {
 
     function printWorld(generationCount, world) {
         content += "Generation " + generationCount + ":\n";
-        for (var r = 0; r < 10; ++r) {
-            for (var c = 0; c < 10; ++c) {
+        for (var r = 0; r < SIDE; ++r) {
+            for (var c = 0; c < SIDE; ++c) {
                 content += world[r][c];
             }
             content += "\n";
@@ -42,11 +44,11 @@ function Life({input, setContent}) {
         setContent(content);
     }
 
-    function oneGeneration(world) {
+    function nextGeneration(world) {
         var newWorld = [];
-        for (var r = 0; r < 10; ++r) {
+        for (var r = 0; r < SIDE; ++r) {
             newWorld.push([]);
-            for (var c = 0; c < 10; ++c) {
+            for (var c = 0; c < SIDE; ++c) {
                 const aliveCount = getAliveNeighbours(r, c, world);
                 if (aliveCount < 2)
                     newWorld[r].push("-");
@@ -62,7 +64,7 @@ function Life({input, setContent}) {
     }
 
     function isValidCell (r, c) {
-        return (r >= 0 && r < 10 && c >=0 && c < 10);
+        return (r >= 0 && r < SIDE && c >=0 && c < SIDE);
     }
 
     function getAliveNeighbours (row, col, world) {
@@ -70,9 +72,7 @@ function Life({input, setContent}) {
         for (var r = -1; r <= 1; ++r) {
             for (var c = -1; c <= 1; ++c) {
                 if (r === 0  && c === 0) continue;
-                if (isValidCell(row+r, col+c) &&
-                    world[row+r][col+c] === "*"
-                )
+                if (isValidCell(row+r, col+c) && world[row+r][col+c] === "*")
                     ++count;
             }
         }
