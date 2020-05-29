@@ -4,6 +4,8 @@
 #include <vector>
 using namespace std;
 
+const size_t SIDE = 10;
+
 void getInitialWorld(ifstream& ifs, vector<string>& world); 
 void nextGeneration(vector<string>& world);
 void printWorld(int generationCount, const vector<string>& world);
@@ -33,22 +35,20 @@ int main() {
 }
 
 void getInitialWorld(ifstream& ifs, vector<string>& world) {
-	size_t side = 10;
-
 	string line;
 	while (getline(ifs, line)) {
-		if (line.size() < side) {
-			for (size_t i = 0; i < side-line.size(); )
+		if (line.size() < SIDE) {
+			for (size_t i = 0; i < SIDE-line.size(); )
 				line += " ";
 		}
-		world.push_back(line.substr(0, 10));
+		world.push_back(line.substr(0, SIDE));
 	}
 
-	if (world.size() < side) {
+	if (world.size() < SIDE) {
 		line = "";
-		for (size_t i = 0; i < side; i++)
+		for (size_t i = 0; i < SIDE; i++)
 			line += " ";
-		for (size_t i = 0; i < side-world.size(); )
+		for (size_t i = 0; i < SIDE-world.size(); )
 			world.push_back(line);
 	}
 }
@@ -64,7 +64,7 @@ void printWorld(int generationCount, const vector<string>& world) {
 }
 
 bool isValidCell (int r, int c) {
-	return (r >= 0 && r < 10 && c >=0 && c < 10);
+	return (r >= 0 && r < int(SIDE) && c >=0 && c < int(SIDE));
 }
 
 int neighborNum(int row, int col, const vector<string>& world) {
