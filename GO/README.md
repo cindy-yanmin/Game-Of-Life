@@ -5,6 +5,8 @@ The program is run from the command line as follows:
 $ go run life.go
 ```
 
+------------------------------------------------------------------------------------------------
+
 Language highlights:
 ```
 The Golang run time handles scheduling and resource allocation for the goroutines internally.
