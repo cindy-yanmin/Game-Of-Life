@@ -12,24 +12,25 @@ $ ./life rows columns filename generations
 
 ------------------------------------------------------------------------------------------------
 
-Language highlights:
+**Language Highlights**
 ```
-C is a general-purpose, high-level language that was originally developed by Dennis M. Ritchie to develop the UNIX operating system.
-The two main advantages of this language are efficiency and it can handle low-level activities such as easy manipulation of pointers.
+C is a general-purpose, high-level language that was originally developed by Dennis M. Ritchie to develop the UNIX OS.
+The two main advantages of this language are efficiency and it can handle low-level activities.
 
-Unlike the stack where memory is allocated and released in a very defined order, heap is a location in memory where memory may be allocated at random access.
-Stack
+Unlike the stack where memory is allocated and released in a very defined order, 
+heap is a location in memory where memory may be allocated at random access.
+STACK
 * very fast access
 * don't have to explicitly de-allocate variables
 * space is managed efficiently by CPU, memory will not become fragmented
 * local variables only
 * limit on stack size (OS-dependent)
 * variables cannot be resized
-Heap
+HEAP
 * variables can be accessed globally
 * no limit on memory size
 * (relatively) slower access
-* no guaranteed efficient use of space, memory may become fragmented over time as blocks of memory are allocated, then freed
-* you must manage memory (you're in charge of allocating and freeing variables) to prevent **memory leak**
+* no guaranteed efficient use of space, memory may become fragmented over time as blocks of memory are allocated/freed
+* must manage memory (you're in charge of allocating and freeing variables) to prevent memory leak
 * variables can be resized using realloc()
 ```
