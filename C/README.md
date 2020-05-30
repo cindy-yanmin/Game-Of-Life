@@ -10,7 +10,7 @@ $ make
 $ ./life rows columns filename generations
 ```
 
-Language Features:
+Language highlights:
 ```
 C is a general-purpose, high-level language that was originally developed by Dennis M. Ritchie to develop the UNIX operating system.
 The two main advantages of this language are efficiency and it can handle low-level activities such as easy manipulation of pointers.
