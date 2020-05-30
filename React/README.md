@@ -9,5 +9,6 @@ $ sudo apt install npm
 $ npx create-react-app my-app
 
 Run the react app
+$ npm install
 $ npm start
 ```

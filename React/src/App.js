@@ -46,6 +46,7 @@ function App() {
 
   return (
     <>
+      <h1>Game of Life</h1>
       <input type="file" onChange={getFile} /><br/><br/>
       <span style={{whiteSpace: "pre-wrap"}}>{content}</span>
     </>
