@@ -5,36 +5,35 @@
 using namespace std;
 
 const size_t SIDE = 10;
+const string FILENAME = "../input.txt";
 
-void getInitialWorld(ifstream& ifs, vector<string>& world); 
+vector<string> getInitialWorld(); 
 void nextGeneration(vector<string>& world);
 void printWorld(int generationCount, const vector<string>& world);
 
 int main() {
-	ifstream ifs("../input.txt");
+	int generation;
+	cout << "Input generation number." << endl;
+	cin >> generation;
+
+	// Construct the world
+	vector<string> world = getInitialWorld();
+
+	// Process generations
+	for (int i = 0; i <= generation; ++i) {
+		printWorld(i, world);
+		nextGeneration(world);
+	}
+}
+
+vector<string> getInitialWorld() {
+	ifstream ifs(FILENAME);
 	if (!ifs) {
 		cout << "Could not open the file.\n";
 		exit(1);
 	}
 
-	// Construct the world
-	int generation;
-	cout << "Input generation number." << endl;
-	cin >> generation;
-
 	vector<string> world;
-	getInitialWorld(ifs, world);
-
-	// Generations
-	for (int i = 0; i <= generation; ++i) {
-		printWorld(i, world);
-		nextGeneration(world);
-	}
-
-	ifs.close();
-}
-
-void getInitialWorld(ifstream& ifs, vector<string>& world) {
 	string line;
 	while (getline(ifs, line)) {
 		if (line.size() < SIDE) {
@@ -43,14 +42,17 @@ void getInitialWorld(ifstream& ifs, vector<string>& world) {
 		}
 		world.push_back(line.substr(0, SIDE));
 	}
+	ifs.close();
+
+	// If the file does not have enough rows, build empty rows
+	line = "";
+	for (size_t i = 0; i < SIDE; i++)	line += " ";
 
 	if (world.size() < SIDE) {
-		line = "";
-		for (size_t i = 0; i < SIDE; i++)
-			line += " ";
 		for (size_t i = 0; i < SIDE-world.size(); )
 			world.push_back(line);
 	}
+	return world;
 }
 
 void printWorld(int generationCount, const vector<string>& world) {
@@ -67,7 +69,7 @@ bool isValidCell (int r, int c) {
 	return (r >= 0 && r < int(SIDE) && c >=0 && c < int(SIDE));
 }
 
-int neighborNum(int row, int col, const vector<string>& world) {
+int neighborNum(size_t row, size_t col, const vector<string>& world) {
 	int count = 0;
 	for (int r = -1; r <= 1; ++r) {
 		for (int c = -1; c <= 1; ++c) {

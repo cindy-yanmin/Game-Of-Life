@@ -6,6 +6,6 @@ After displaying the initial state, the program will proceed to calculate some n
 
 The program is run from the command line as follows:
 ```
-~$ make
-~$ ./life rows columns filename generations
+$ make
+$ ./life rows columns filename generations
 ```
