@@ -52,10 +52,10 @@ class life {
                         world[r][c] = new DeadCell();
                 }
             }
-			scanner.close();
-		} catch (Exception e) {
+            scanner.close();
+        } catch (Exception e) {
             System.out.println("Failed to open the file");
-			System.exit(0);
+            System.exit(1);
         }
 
         return world;
