@@ -10,7 +10,7 @@ $ go run life.go
 **Language Highlights**
 ```
 The Golang run time handles scheduling and resource allocation for the goroutines internally.
-Goroutines are not OS threads, but they are not exactly Green Threads as well. 
+A goroutine is a lightweight thread of execution; its neither a OS thread nor an exact Green Thread.
 Go's mechanism for hosting goroutines is an implementation of what's called an M:N scheduler, 
 which means it maps M green threads to N OS threads. Goroutines are then scheduled onto the green threads.
 ```
